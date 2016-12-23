@@ -22,6 +22,7 @@ math::Matrix<TYPE>::Matrix(const size_t& M_SIZE,
 {
 	try
 	{
+		// Allocates a block of memory of size M * N
 		mat = (TYPE *)malloc(m_size * n_size * sizeof(TYPE));
 	}
 	catch (std::bad_alloc& ba)
@@ -38,15 +39,15 @@ math::Matrix<TYPE>::Matrix(const Matrix& matrix)
 }
 
 template<typename TYPE>
-math::Matrix<TYPE>::~Matrix() {
-}
-
+math::Matrix<TYPE>::~Matrix()
+{
+	delete [] mat;
 }
 
 template<typename TYPE>
 math::Matrix<TYPE>& math::Matrix<TYPE>::operator=(const Matrix& RHS)
 {
-
+	// TODO
 }
 
 template<typename TYPE>
@@ -85,3 +86,5 @@ bool math::Matrix<TYPE>::operator!=(const Matrix& RHS) const
 //{
 //
 //}
+
+} // END -- namespace math
